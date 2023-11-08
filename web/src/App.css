@@ -1,0 +1,21 @@
+body {
+  background-color: rgba(0, 26, 255, 0.223);
+  margin: 32px;
+  color: rgb(36, 36, 36);
+}
+.App {
+  text-align: center;
+}
+
+button {
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 0px 4px;
+}
+
+button:hover {
+  transition: 0.4s;
+  background-color: rgba(137, 43, 226, 0.386);
+}
