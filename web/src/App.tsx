@@ -102,6 +102,10 @@ function App() {
     };
   };
 
+  const showHelp = () => {
+    return window.alert("j -> next \nk -> prev \nn,f -> show/hide answer");
+  };
+
   return (
     <div className="App">
       <ul style={{ listStyle: "none", display: "flex" }}>
@@ -117,6 +121,15 @@ function App() {
             {c}
           </li>
         ))}
+        <li
+          style={{
+            opacity: 0.6,
+            cursor: "pointer",
+          }}
+          onClick={showHelp}
+        >
+          help
+        </li>
       </ul>
 
       <button
