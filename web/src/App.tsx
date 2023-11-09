@@ -107,7 +107,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App text-center flex flex-col p-8 h-screen">
       <ul style={{ listStyle: "none", display: "flex" }}>
         {Object.keys(categories).map((c) => (
           <li
@@ -132,26 +132,33 @@ function App() {
         </li>
       </ul>
 
-      <button
-        onClick={() => setOrdering("random")}
-        style={{
-          fontWeight: ordering === "random" ? "bold" : "normal",
-          marginRight: 8,
-          cursor: "pointer",
-        }}
-      >
-        random
-      </button>
-      <button
-        onClick={() => setOrdering("sequential")}
-        style={{
-          fontWeight: ordering === "sequential" ? "bold" : "normal",
-          marginRight: 8,
-          cursor: "pointer",
-        }}
-      >
-        sequential
-      </button>
+      <div>
+        <button
+          onClick={() => setOrdering("random")}
+          style={{
+            fontWeight: ordering === "random" ? "bold" : "normal",
+            marginRight: 8,
+            cursor: "pointer",
+          }}
+        >
+          random
+        </button>
+        <button
+          onClick={() => setOrdering("sequential")}
+          style={{
+            fontWeight: ordering === "sequential" ? "bold" : "normal",
+            marginRight: 8,
+            cursor: "pointer",
+          }}
+        >
+          sequential
+        </button>
+        <input
+          type="checkbox"
+          checked={showAnswer}
+          onClick={(e) => setShowAnswer((v) => !v)}
+        />
+      </div>
 
       <div
         style={{
@@ -188,20 +195,39 @@ function App() {
             />
           )}
 
-          <div key={selectedQuestion?.ID}>
+          <div key={selectedQuestion?.ID} className="py-2">
             <p style={getQuestionStyles(1)}>1. {selectedQuestion?.Answer1}</p>
             <p style={getQuestionStyles(2)}>2. {selectedQuestion?.Answer2}</p>
             <p style={getQuestionStyles(3)}>3. {selectedQuestion?.Answer3}</p>
             <p style={getQuestionStyles(4)}>4. {selectedQuestion?.Answer4}</p>
           </div>
 
-          <button onClick={() => handleChangeQuestionClick(false)}>
+          {/* <button onClick={() => handleChangeQuestionClick(false)}>
             Previous
           </button>
-          <button onClick={() => handleChangeQuestionClick(true)}>Next</button>
+          <button onClick={() => handleChangeQuestionClick(true)}>Next</button> */}
           <hr />
-          <textarea value={notes} onChange={(e) => setNotes(e.target.value)} />
+          <textarea
+            className="mt-2"
+            value={notes}
+            onChange={(e) => setNotes(e.target.value)}
+          />
         </div>
+      </div>
+      <div className="grow" />
+      <div className="flex">
+        <button
+          className="flex-1 bg-gray-300 h-24"
+          onClick={() => handleChangeQuestionClick(false)}
+        >
+          Previous
+        </button>
+        <button
+          className="flex-1 bg-gray-300"
+          onClick={() => handleChangeQuestionClick(true)}
+        >
+          Next
+        </button>
       </div>
     </div>
   );
