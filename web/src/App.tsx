@@ -10,6 +10,8 @@ import practice from "./questions/practice.json";
 import { Question } from "./types";
 import { useHotkeys } from "react-hotkeys-hook";
 
+import { usePWAInstall } from "react-use-pwa-install";
+
 const categories = {
   all: "all",
   aerodynamics: "aerodynamics",
@@ -28,6 +30,8 @@ const allQuestions = [
 ];
 
 function App() {
+  const install = usePWAInstall();
+
   const [ordering, setOrdering] = useState<"random" | "sequential">(
     "sequential"
   );
@@ -47,7 +51,7 @@ function App() {
   }, [category]);
 
   const handleCategoryChangeClick = (category: string) => {
-    console.log(category);
+    // console.log(category);
     setCategory(category);
     setSelectedQuestionIndex(0);
     setSelectedQuestion(
@@ -59,7 +63,7 @@ function App() {
 
   const handleChangeQuestionClick = (isNext = true) => {
     if (selectedQuestion?.ID) {
-      console.log(notes);
+      // console.log(notes);
       localStorage.setItem(`q-${selectedQuestion?.ID}`, notes);
     }
 
@@ -92,7 +96,6 @@ function App() {
 
   const getQuestionStyles = (answer: number) => {
     const isAnswer = `${answer}` === `${selectedQuestion?.Answer}`;
-    console.log({ answer, selectedQuestion, isAnswer, showAnswer });
 
     return {
       opacity: showAnswer ? (isAnswer ? 1 : 0.4) : 1,
@@ -116,19 +119,34 @@ function App() {
               cursor: "pointer",
             }}
             onClick={() => handleCategoryChangeClick(c)}
+            key={c}
           >
             {c}
           </li>
         ))}
         <li
+          key="help"
           style={{
             opacity: 0.6,
             cursor: "pointer",
+            marginRight: 8,
           }}
           onClick={showHelp}
         >
           help
         </li>
+        {install && (
+          <li
+            key="install"
+            style={{
+              opacity: 0.6,
+              cursor: "pointer",
+            }}
+            onClick={install}
+          >
+            install
+          </li>
+        )}
       </ul>
 
       <div>
