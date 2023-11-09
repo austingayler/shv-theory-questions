@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/shv-theory-questions/static/css/main.45c419fc.css",
-    "main.js": "/shv-theory-questions/static/js/main.449872e3.js",
+    "main.js": "/shv-theory-questions/static/js/main.cc84e5ee.js",
     "static/js/787.aadca95f.chunk.js": "/shv-theory-questions/static/js/787.aadca95f.chunk.js",
     "index.html": "/shv-theory-questions/index.html",
     "main.45c419fc.css.map": "/shv-theory-questions/static/css/main.45c419fc.css.map",
-    "main.449872e3.js.map": "/shv-theory-questions/static/js/main.449872e3.js.map",
+    "main.cc84e5ee.js.map": "/shv-theory-questions/static/js/main.cc84e5ee.js.map",
     "787.aadca95f.chunk.js.map": "/shv-theory-questions/static/js/787.aadca95f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.45c419fc.css",
-    "static/js/main.449872e3.js"
+    "static/js/main.cc84e5ee.js"
   ]
 }
