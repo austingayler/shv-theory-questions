@@ -37,7 +37,6 @@ function App() {
   );
   const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(0);
 
-  const [alwaysShowAnswer, setAlwaysShowAnswer] = useState(true);
   const [showAnswer, setShowAnswer] = useState(false);
 
   const [notes, setNotes] = useState("");
